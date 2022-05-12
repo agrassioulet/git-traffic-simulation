@@ -1,0 +1,119 @@
+.road-container {
+border-top: solid 10px rgb(41, 209, 41);
+border-bottom: solid 10px rgb(41, 209, 41);
+background-color: #212121;
+}
+
+
+.lane {
+  height: 150px;
+  background-color: #212121;
+  position: relative;
+}
+
+.lane-1 .vehicle {
+  position: absolute;
+  transform: rotate(90deg);
+  width: 25px;
+  height: 50px;
+  background-size: 25px 50px;
+  left: 0px;
+  top: 20px;
+  background-image: url("./images/vehicule.PNG");
+}
+
+.road-separation {
+  border-top: solid 5px white;
+  border-style: dashed;
+}
+
+.stop-line-lane-1 {
+  background-color: white;
+  position: absolute;
+  left: 500px;
+  top: 0;
+  width: 5px;
+  height: 80%;
+}
+
+.stop-line-lane-2 {
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 5px;
+  height: 80%;
+}
+
+
+/* CSS DU FEU DE CIRCULATION */
+
+#redfire {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+#orangefire {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+
+#greenfire {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+#redfire[state="active"] {
+  background-color: red;
+}
+
+#redfire[state="inactive"] {
+  background-color: rgb(81, 0, 0);
+}
+
+
+#greenfire[state="active"] {
+  background-color: rgb(0, 215, 0);
+}
+
+#greenfire[state="inactive"] {
+  background-color: rgb(0, 46, 0);
+}
+
+#orangefire[state="active"] {
+  background-color: orange;
+}
+
+#orangefire[state="inactive"] {
+  background-color: rgb(116, 75, 0);
+}
+
+#stoplight-top {
+  background-color: lightgray;
+  padding: 20px;
+}
+
+.fire {
+  margin: 10px 0;
+}
+
+#stoplight-bottom {
+  display: inline-block;
+  width: 50px;
+  height: 200px;
+  background-color: lightgrey;
+}
+
+#stoplight {
+  display: inline-block;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
