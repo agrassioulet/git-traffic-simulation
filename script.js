@@ -18,47 +18,51 @@ btnStop.onclick = (e) => {
 }
 
 const stoplightState = {
-    "state": "orange",
-    "timer" : 1
 }
-updateStoplight("orange")
+// Init stoplight
+stoplightState.timer = 200
+stoplightState.state = "green"
+updateDisplayStoplight("green")
+
+
 
 // PARTIE FONCTIONS //
 function updateState() {
     var str = vehicle.style.left
     var str=str.replace("px","")
     var nbr=Number(str)
-    if(stoplightState.state == "green" || nbr != 450) {
+    if(stoplightState.state == "green" || nbr != 350) {
 
         nbr++
         vehicle.style.left = nbr + "px"
     }
     
-
-    updateStateStoplight()
+    updateStoplight()
     
 }
 
 
-function updateStateStoplight() {
+function updateStoplight() {
     var timer = stoplightState.timer
 
     if (timer == 0) {
         switch (stoplightState.state) {
             case 'red':
+                // Le feu était rouge, on passe au vert
                 stoplightState.timer = 200
                 stoplightState.state = "green"
-                updateStoplight("green")
+                updateDisplayStoplight("green")
                 break;
             case 'orange':
-                stoplightState.timer = 700
+                 // Le feu était orange, on passe au rouge
+                stoplightState.timer = 400
                 stoplightState.state = "red"
-                updateStoplight("red")
+                updateDisplayStoplight("red")
                 break
             case 'green':
-                stoplightState.timer = 700
+                stoplightState.timer = 100
                 stoplightState.state = "orange"
-                updateStoplight("orange")
+                updateDisplayStoplight("orange")
                 break
             default:
                 console.log("Error in updateState");
@@ -69,7 +73,7 @@ function updateStateStoplight() {
 
 
 
-function updateStoplight(color) {
+function updateDisplayStoplight(color) {
     switch (color) {
         case 'red':
             divRedFire.setAttribute("state", "active")
@@ -91,39 +95,3 @@ function updateStoplight(color) {
     }
 }
 
-// fonctions pour actualiser le dom plus rapidemment
-// function ml(tagName, props, nest) {
-//     var el = document.createElement(tagName);
-//     if (props) {
-//         for (var name in props) {
-//             if (name.indexOf("on") === 0) {
-//                 el.addEventListener(name.substr(2).toLowerCase(), props[name], false)
-//             } else {
-//                 el.setAttribute(name, props[name]);
-//             }
-//         }
-//     }
-//     if (!nest) {
-//         return el;
-//     }
-//     return nester(el, nest)
-// }
-
-// function nester(el, n) {
-//     if (typeof n === "string") {
-//         var t = document.createTextNode(n);
-//         el.appendChild(t);
-//     } else if (n instanceof Array) {
-//         for (var i = 0; i < n.length; i++) {
-//             if (typeof n[i] === "string") {
-//                 var t = document.createTextNode(n[i]);
-//                 el.appendChild(t);
-//             } else if (n[i] instanceof Node) {
-//                 el.appendChild(n[i]);
-//             }
-//         }
-//     } else if (n instanceof Node) {
-//         el.appendChild(n)
-//     }
-//     return el;
-// }

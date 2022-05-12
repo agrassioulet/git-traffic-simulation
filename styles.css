@@ -11,17 +11,6 @@ background-color: #212121;
   position: relative;
 }
 
-.lane-1 .vehicle {
-  position: absolute;
-  transform: rotate(90deg);
-  width: 25px;
-  height: 50px;
-  background-size: 25px 50px;
-  left: 0px;
-  top: 20px;
-  background-image: url("./images/vehicule.PNG");
-}
-
 .road-separation {
   border-top: solid 5px white;
   border-style: dashed;
@@ -43,6 +32,18 @@ background-color: #212121;
   bottom: 0;
   width: 5px;
   height: 80%;
+}
+
+/* CSS POUR LA VOITURE */
+.lane-1 .vehicle {
+  position: absolute;
+  transform: rotate(180deg);
+  width: 150px;
+  height: 100px;
+  background-size: 150px 100px;
+  left: 0px;
+  top: 20px;
+  background-image: url("./images/honda_car.png");
 }
 
 
