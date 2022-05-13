@@ -1,11 +1,15 @@
 const btnStart = document.getElementById("btn-start")
 const btnStop = document.getElementById("btn-stop")
+const btnAddVehicle = document.getElementById("btn-add-vehicle")
+
 const divRedFire = document.getElementById("redfire")
 const divOrangeFire = document.getElementById("orangefire")
 const divGreenFire = document.getElementById("greenfire")
 var intervalID
 
 const vehicle = document.querySelector(".lane-1 .vehicle")
+var vehicles = []
+
 
 btnStart.onclick = (e) => {
     e.preventDefault()
@@ -17,8 +21,12 @@ btnStop.onclick = (e) => {
     clearInterval(intervalID);
 }
 
-const stoplightState = {
+btnAddVehicle.onclick = (e) => {
+    e.preventDefault()
+    vehicles.push({"position" : 0})
 }
+
+const stoplightState = {}
 // Init stoplight
 stoplightState.timer = 200
 stoplightState.state = "green"
