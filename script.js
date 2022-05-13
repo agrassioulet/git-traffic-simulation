@@ -30,7 +30,7 @@ updateDisplayStoplight("green")
 // Init buttons
 btnStart.onclick = (e) => {
     e.preventDefault()
-    intervalID = setInterval(updateState, 1)
+    intervalID = setInterval(updateState, 100)
 }
 
 btnStop.onclick = (e) => {
