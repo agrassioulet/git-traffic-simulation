@@ -1,3 +1,10 @@
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background-color: rgb(254, 255, 235);
+  margin: 0;
+}
+
 .road-container {
 border-top: solid 10px rgb(41, 209, 41);
 border-bottom: solid 10px rgb(41, 209, 41);
@@ -19,7 +26,7 @@ background-color: #212121;
 .stop-line-lane-1 {
   background-color: white;
   position: absolute;
-  left: 500px;
+  left: 800px;
   top: 0;
   width: 5px;
   height: 80%;
@@ -47,25 +54,36 @@ background-color: #212121;
 }
 
 
+/* CSS POUR LES BOUTONS */
+.action-buttons {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+button {
+  margin-right: 5px;
+  padding: 5px;
+}
+
 /* CSS DU FEU DE CIRCULATION */
 
 #redfire {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 30px;
+  height: 30px;
 }
 
 #orangefire {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 30px;
+  height: 30px;
 }
 
 
 #greenfire {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 30px;
+  height: 30px;
 }
 
 #redfire[state="active"] {
@@ -73,7 +91,7 @@ background-color: #212121;
 }
 
 #redfire[state="inactive"] {
-  background-color: rgb(81, 0, 0);
+  background-color: rgb(31, 0, 0);
 }
 
 
@@ -82,7 +100,7 @@ background-color: #212121;
 }
 
 #greenfire[state="inactive"] {
-  background-color: rgb(0, 46, 0);
+  background-color: rgb(0, 33, 0);
 }
 
 #orangefire[state="active"] {
@@ -90,27 +108,31 @@ background-color: #212121;
 }
 
 #orangefire[state="inactive"] {
-  background-color: rgb(116, 75, 0);
+  background-color: rgb(36, 24, 0);
 }
 
 #stoplight-top {
+  border-radius: 10px;
   background-color: lightgray;
-  padding: 20px;
+  padding: 10px;
 }
 
 .fire {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 #stoplight-bottom {
   display: inline-block;
-  width: 50px;
-  height: 200px;
+  width: 9px;
+  height: 40px;
   background-color: lightgrey;
 }
 
 #stoplight {
   display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 780px;
 }
 
 .container {
