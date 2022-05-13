@@ -1,8 +1,8 @@
 // Positionnement des constantes
 const stopline = document.querySelector(".stop-line-lane-1")
-const  STOP_POSITION = getPixelNumber(getComputedStyle(stopline, null).left)
+var  STOP_POSITION = getPixelNumber(getComputedStyle(stopline, null).left)
 const TIMER_RED_FIRE = 300
-const TIMER_GREEN_FIRE = 300
+const TIMER_GREEN_FIRE = 30
 const TIMER_ORANGE_FIRE = 30
 
 
@@ -58,7 +58,7 @@ btnAddVehicle.onclick = (e) => {
 // PARTIE FONCTIONS //
 function updateState() {
 
-
+    STOP_POSITION = getPixelNumber(getComputedStyle(stopline, null).left)
     updateStateVehicles()
     updateStoplight()
 
