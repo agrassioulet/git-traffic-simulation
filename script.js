@@ -1,9 +1,9 @@
 // Positionnement des constantes
 const stopline = document.querySelector(".stop-line-lane-1")
-const STOP_POSITION = getPixelNumber(getComputedStyle(stopline, null).left) - 150
-const TIMER_RED_FIRE = 500
-const TIMER_GREEN_FIRE = 500
-const TIMER_ORANGE_FIRE = 50
+const  STOP_POSITION = getPixelNumber(getComputedStyle(stopline, null).left)
+const TIMER_RED_FIRE = 300
+const TIMER_GREEN_FIRE = 300
+const TIMER_ORANGE_FIRE = 30
 
 
 // Sélection des éléments HTML
@@ -22,7 +22,7 @@ var intervalID
 
 // Init stoplight
 const stoplightState = {}
-stoplightState.timer = 200
+stoplightState.timer = TIMER_GREEN_FIRE
 stoplightState.state = "green"
 updateDisplayStoplight("green")
 
@@ -154,14 +154,17 @@ function updateStateVehicles() {
     list_vehicles.forEach(vehicle => {
         var str = vehicle.style.left
         var position = getPixelNumber(str)
+        console.log("---- Véhicule " + vehicle.getAttribute("id") + "----")
+        console.log("position : " + position)
+
         var widthScreen = getPixelNumber(getComputedStyle(document.body).width)
         
         // test si le véhicule est toujours dans l'écran
         if(position < 1.25 * widthScreen) {
             // Test si le véhicule peut progresser ou non
             var canProgress = canVehicleProgress(vehicle, list_vehicles)
-            if ((stoplightState.state == "green" || position != STOP_POSITION) && canProgress == true) {
-                position++
+            var atStopZone = isAtStopZone(vehicle)
+            if (!atStopZone && canProgress == true) {
                 position++
                 vehicle.style.left = position + "px"
             }
@@ -172,6 +175,17 @@ function updateStateVehicles() {
     })
 }
 
+
+function isAtStopZone(vehicle) {
+    //var positionVehicleFront = getPixelNumber( vehicle.style.left) + getPixelNumber(vehicle.style.width)
+    var positionVehicleFront = getPixelNumber( vehicle.style.left) + getPixelNumber(getComputedStyle(vehicle).width)
+
+    console.log("positionVehicleFront : " + positionVehicleFront)
+    var inStopZone =  positionVehicleFront < STOP_POSITION && positionVehicleFront > STOP_POSITION-3
+    if(inStopZone && stoplightState.state == "red" )
+        return true
+    return false
+}
 
 // Functions for fast dom
 function ml(tagName, props, nest) {

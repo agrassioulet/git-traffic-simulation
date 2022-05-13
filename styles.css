@@ -6,9 +6,9 @@ body {
 }
 
 .road-container {
-border-top: solid 10px rgb(41, 209, 41);
-border-bottom: solid 10px rgb(41, 209, 41);
-background-color: #212121;
+  border-top: solid 10px rgb(41, 209, 41);
+  border-bottom: solid 10px rgb(41, 209, 41);
+  background-color: #212121;
 }
 
 
@@ -26,7 +26,7 @@ background-color: #212121;
 .stop-line-lane-1 {
   background-color: white;
   position: absolute;
-  left: 800px;
+  left: 50%;
   top: 0;
   width: 5px;
   height: 80%;
@@ -66,6 +66,12 @@ button {
 }
 
 /* CSS DU FEU DE CIRCULATION */
+#stoplight {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
 
 #redfire {
   border-radius: 50%;
@@ -126,13 +132,6 @@ button {
   width: 9px;
   height: 40px;
   background-color: lightgrey;
-}
-
-#stoplight {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 780px;
 }
 
 .container {
