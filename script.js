@@ -30,7 +30,7 @@ updateDisplayStoplight("green")
 // Init buttons
 btnStart.onclick = (e) => {
     e.preventDefault()
-    intervalID = setInterval(updateState, 100)
+    intervalID = setInterval(updateState, 1)
 }
 
 btnStop.onclick = (e) => {
@@ -165,7 +165,7 @@ function updateStateVehicles() {
             var canProgress = canVehicleProgress(vehicle, list_vehicles)
             var atStopZone = isAtStopZone(vehicle)
             if (!atStopZone && canProgress == true) {
-                position++
+                position = position + 3
                 vehicle.style.left = position + "px"
             }
         }
